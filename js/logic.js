@@ -36,11 +36,11 @@ function deal(parsedDeck){
 		cardInner += '<div class=\"right node\" id=\"' + i + '-B\">'+ parsedDeck.deck.cards[i].right +'</div>';
 		cardInner += '<div class=\"bottom node\" id=\"' + i + '-C\">'+ parsedDeck.deck.cards[i].bottom +'</div>';
 		cardInner += '<div class=\"left node\" id=\"' + i + '-D\">'+ parsedDeck.deck.cards[i].left +'</div>';
-		cardInner += '<div class=\"pushU\"></div>';
-		cardInner += '<div class=\"pushR\"></div>';
-		cardInner += '<div class=\"pushD\"></div>';
-		cardInner += '<div class=\"pushL\"></div>';
-		cardInner += '<div class=\"rotate\"></div>';
+		cardInner += '<div class=\"pushU\"><img src=\"img/arrow-icon-up.png\" height=\"20px\" width=\"20px\"></div>';
+		cardInner += '<div class=\"pushR\"><img src=\"img/arrow-icon-rt.png\" height=\"20px\" width=\"20px\"></div>';
+		cardInner += '<div class=\"pushD\"><img src=\"img/arrow-icon-dn.png\" height=\"20px\" width=\"20px\"></div>';
+		cardInner += '<div class=\"pushL\"><img src=\"img/arrow-icon-lf.png\" height=\"20px\" width=\"20px\"></div>';
+		cardInner += '<div class=\"rotate\"><img src=\"img/rotate-icon.png\" height=\"20px\" width=\"20px\"></div>';
 		cardInner += '</div>';
 		$(this).append(cardInner);
 		

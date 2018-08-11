@@ -205,6 +205,47 @@ html,body {
 	transform: rotate(-90deg);
 }
 
+.pushU{
+	position: absolute;
+	top: 42px;
+	left: 65px;
+	cursor: pointer;
+	opacity: 0.4;
+}
+
+.pushR{
+	position: absolute;
+	top: 65px;
+	left: 90px;
+	cursor: pointer;
+	opacity: 0.4;
+}
+
+.pushD{
+	position: absolute;
+	top: 90px;
+	left: 65px;
+	cursor: pointer;
+	opacity: 0.4;
+}
+
+.pushL{
+	position: absolute;
+	top: 65px;
+	left: 40px;
+	cursor: pointer;
+	opacity: 0.4;
+}
+
+.rotate{
+	position: absolute;
+	top: 65px;
+	left: 65px;
+	cursor: pointer;
+	opacity: 0.4;
+}
+
+
 .view{
   width: 100%;
   height: 100%;
