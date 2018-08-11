@@ -1,0 +1,73 @@
+{
+  "deck": {
+	"publisher":"Lagoon Puzzles",
+	"title":"Sensational Sea Life Nature Puzzle",
+	"code":"636",
+    "symbols": [
+      "Butterfly Fish",
+      "Angel Fish",
+      "Octopus",
+      "Seahorse"
+    ],
+    "halves": [
+      "Head",
+      "Tail"
+    ],
+    "cards": [
+      {
+        "top": "Octopus Tail",
+        "right": "Angel Fish Tail",
+        "bottom": "Butterfly Fish Tail",
+        "left": "Angel Fish Head"
+      },
+      {
+        "top": "Butterfly Fish Tail",
+        "right": "Butterfly Fish Head",
+        "bottom": "Octopus Head",
+        "left": "Angel Fish Tail"
+      },
+      {
+        "top": "Seahorse Head",
+        "right": "Angel Fish Head",
+        "bottom": "Angel Fish Tail",
+        "left": "Butterfly Fish Tail"
+      },
+      {
+        "top": "Seahorse Head",
+        "right": "Angel Fish Tail",
+        "bottom": "Octopus Head",
+        "left": "Butterfly Fish Head"
+      },
+      {
+        "top": "Octopus Tail",
+        "right": "Seahorse Tail",
+        "bottom": "Butterfly Fish Head",
+        "left": "Octopus Head"
+      },
+      {
+        "top": "Seahorse Head",
+        "right": "Butterfly Fish Head",
+        "bottom": "Octopus Head",
+        "left": "Seahorse Head"
+      },
+      {
+        "top": "Butterfly Fish Head",
+        "right": "Angel Fish Head",
+        "bottom": "Octopus Head",
+        "left": "Angel Fish Head"
+      },
+      {
+        "top": "Angel Fish Tail",
+        "right": "Seahorse Tail",
+        "bottom": "Seahorse Tail",
+        "left": "Octopus Tail"
+      },
+      {
+        "top": "Seahorse Tail",
+        "right": "Octopus Tail",
+        "bottom": "Seahorse Head",
+        "left": "Butterfly Fish Tail"
+      }
+    ]
+  }
+}

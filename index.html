@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Cutive+Mono|Source+Code+Pro" rel="stylesheet">
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body id="home">
+
+	<div id="side-menu">
+	
+	<div id="titleCard">
+	<h2 id="menuHeader">Card Exploder</h2>
+	<p id="menuCopy">---------------------</p>
+	<p id="menuCopy">A 9-Card Puzzle Utility</p>
+	<p id="menuCopy">By NPoole</p>
+	</div>
+	
+	<div id="deckTools">
+	
+	<label for="deckSelect">Choose a Deck</label>
+	<select id="deckSelect">
+	<option value="SensationalSeaLife">Sensational Sea Life Nature Puzzle</option>
+	</select>
+	<p>---or---</p>
+	<label for="localDeck">Load your own</label>
+        <input type="file"
+               id="localDeck" name="localDeck"
+               accept="application/json" />
+	
+	
+	</div>
+	
+	
+	</div>
+
+	<div id="workspace">
+	
+		<div id="card-grid">
+		
+			<div class="cardPad" id="1"></div>
+			<div class="cardPad" id="2"></div>
+			<div class="cardPad" id="3"></div>
+			<div class="cardPad" id="4"></div>
+			<div class="cardPad" id="5"></div>
+			<div class="cardPad" id="6"></div>
+			<div class="cardPad" id="7"></div>
+			<div class="cardPad" id="8"></div>
+			<div class="cardPad" id="9"></div>		
+		
+		</div>
+	
+	</div>
+	
+	<div id="modal" hidden></div>
+
+</body>
+
+<script src="js/logic.js"></script>
+
+</html>

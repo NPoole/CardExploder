@@ -1,0 +1,292 @@
+/*------------------------------------*\
+    RESET
+\*------------------------------------*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+    v2.0b1 | 201101 
+    NOTE:WORK IN PROGRESS
+    USE WITH CAUTION AND TEST WITH ABANDON */
+
+html,body,div,span,applet,object,iframe,
+h1,h2,h3,h4,h5,h6,p,blockquote,pre,
+a,abbr,acronym,address,big,cite,code,
+del,dfn,em,img,ins,kbd,q,s,samp,
+small,strike,strong,sub,sup,tt,var,
+b,u,i,center,
+dl,dt,dd,ol,ul,li,
+fieldset,form,label,legend,
+table,caption,tbody,tfoot,thead,tr,th,td,
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary,
+time,mark,audio,video{
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    font:inherit;
+    vertical-align:baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section{
+    display:block;
+}
+body{
+    line-height:1;
+}
+ol,ul{
+    list-style:none;
+}
+blockquote,q{
+    quotes:none;
+}
+blockquote:before,blockquote:after,
+q:before,q:after{
+    content:’’;
+    content:none;
+}
+/* remember to define visible focus styles! 
+:focus{
+    outline:?????;
+} */
+
+/* remember to highlight inserts somehow! */
+ins{
+    text-decoration:none;
+}
+del{
+    text-decoration:line-through;
+}
+
+table{
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+
+
+
+
+/*------------------------------------*\
+    $MAIN
+\*------------------------------------*/
+
+html,body {
+    height:100%;
+	width: 100%;
+	font-family: 'Cutive Mono', monospace;
+	display: flex;
+	flex-direction: row;
+}
+
+#side-menu {
+	
+	height: 100%;
+	width: 25%;
+	overflow-y: scroll;
+	background-color: #CCFEF4;
+	
+}
+
+#workspace {
+
+	height: 100%;
+	display: flex;
+    background-color: lightgray;
+    height: 100%;
+    flex-grow: 1;
+    background-image: url("grid.svg");
+    background-size: 30px;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+#connectome {
+	
+	position: absolute;
+	height: 100%;
+	width: 75%;
+	top: 0px;
+	left: 25%;
+	z-index: 100;
+	pointer-events: none;
+	
+}
+
+#card-grid {
+	
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	height: 600px;
+	width: 600px;
+	align-content: center;
+	justify-content: center;
+	
+}
+
+.cardPad {
+	
+	width: 150px;
+	height: 150px;
+	background-color: #FEF89B;
+	flex-grow: 0;
+	margin: 25px;
+	border-radius: 5px;
+	
+}
+
+#menuHeader{
+	
+	font-size: 20pt;
+	font-family: 'Source Code Pro', monospace;
+	
+}
+
+#menuCopy{
+	
+}
+
+#titleCard{
+	margin: 10px;	
+}
+
+#deckTools{
+	margin: 10px;
+}
+
+.card{
+	width: 100%;
+	height: 100%;
+	font-size: 10pt;	
+	position: relative;
+}
+
+.top{
+	position: absolute;
+	top: 0px;
+	left: 37px;
+	width: 75px;
+	height: auto;
+	text-align: center;	
+	margin-top: 5px;
+}
+
+.right{
+	position: absolute;
+	top: 56px;
+	right: -20px;	
+	width: 75px;
+	height: auto;
+	text-align: center;	
+	margin-top: 5px;
+	transform: rotate(-90deg);
+}
+
+.bottom{
+	position: absolute;
+	bottom: 0px;
+	left: 37px;
+	width: 75px;
+	height: auto;	
+	text-align: center;	
+	margin-top: 5px;
+}
+
+.left{
+	position: absolute;
+	top: 56px;
+	left: -20px;
+	width: 75px;
+	height: auto;
+	text-align: center;	
+	margin-top: 5px;
+	transform: rotate(-90deg);
+}
+
+.view{
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.design-canvas {
+  display: inline-flex;
+  background-color: lightgray;
+  height: 100%;
+  width: auto;
+  flex-grow: 100;
+  background-image: url("grid.svg");
+  background-size: 30px;
+}
+
+.board {
+  position: relative;
+  margin: auto;
+  width: 300px;
+  height: 150px;
+  background-color: #CCFEF4;
+  box-sizing: border-box;
+}
+
+.text-output{
+  display: inline-flex;
+}
+
+.toolbar{
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	-moz-user-select: none;     /* Firefox all */
+	-ms-user-select: none;      /* IE 10+ */
+	user-select: none;    
+	font-family: 'Varela Round', sans-serif;
+	z-index: 100;
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+}
+
+.toolbtn{
+	width: 60px;
+	height: 60px;
+	text-align: center;
+	padding: 15px 10px 25px 10px;
+	border-radius: 10px;
+	color: white;
+	cursor: pointer;
+}
+
+#add-module{
+	background-color: #FE7ABC;
+}
+
+#module-catalog{
+
+	font-family: 'Varela Round', sans-serif;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	z-index: 1000; 
+	width: 500px;
+	height: 400px;
+	background-color: white;
+	border-color: #FEF89B;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 10px;
+	color: black;
+	
+}
+
+#window-bar{
+	
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 20px;
+	width: 100%;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	background-color: #FEF89B;
+	
+}
