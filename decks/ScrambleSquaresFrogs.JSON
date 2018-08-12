@@ -1,0 +1,73 @@
+{
+  "deck": {
+	"publisher":"b. dazzle",
+	"title":"Scramble Squares: Frogs",
+	"code":"null",
+    "symbols": [
+      "Red Frog",
+      "Green Frog",
+      "Blue Frog",
+      "Yellow Frog"
+    ],
+    "halves": [
+      "Head",
+      "Legs"
+    ],
+    "cards": [
+      {
+        "top": "Yellow Frog Legs",
+        "right": "Green Frog Head",
+        "bottom": "Red Frog Legs",
+        "left": "Blue Frog Head"
+      },
+      {
+        "top": "Red Frog Head",
+        "right": "Red Frog Legs",
+        "bottom": "Blue Frog Head",
+        "left": "Green Frog Legs"
+      },
+      {
+        "top": "Blue Frog Head",
+        "right": "Yellow Frog Head",
+        "bottom": "Blue Frog Legs",
+        "left": "Yellow Frog Head"
+      },
+      {
+        "top": "Green Frog Legs",
+        "right": "Yellow Frog Legs",
+        "bottom": "Red Frog Legs",
+        "left": "Green Frog Head"
+      },
+      {
+        "top": "Blue Frog Legs",
+        "right": "Green Frog Legs",
+        "bottom": "Yellow Frog Head",
+        "left": "Red Frog Legs"
+      },
+      {
+        "top": "Green Frog Head",
+        "right": "Yellow Frog Legs",
+        "bottom": "Blue Frog Legs",
+        "left": "Red Frog Head"
+      },
+      {
+        "top": "Blue Frog Head",
+        "right": "Red Frog Legs",
+        "bottom": "Green Frog Head",
+        "left": "Yellow Frog Head"
+      },
+      {
+        "top": "Green Frog Legs",
+        "right": "Red Frog Legs",
+        "bottom": "Yellow Frog Legs",
+        "left": "Blue Frog Head"
+      },
+      {
+        "top": "Blue Frog Head",
+        "right": "Green Frog Head",
+        "bottom": "Yellow Frog Legs",
+        "left": "Red Frog Head"
+      }
+    ]
+  }
+}

@@ -2,9 +2,26 @@ var deckInUse;
 
 $(document).ready(function() 
 {
+	initTools();
 	initCanvas();
 	loadDeckJSON("SensationalSeaLife");
 });
+
+function initTools(){
+	$('#drawLines').change(function(){
+		generateConnectome(deckInUse);
+	});	
+	$('#cullDupes').change(function(){
+		generateConnectome(deckInUse);
+	});		
+	$('#deckSelect').change(function(){
+		$('.card').remove();
+		loadDeckJSON($(this).val());	
+	});	
+	$('#localDeck').change(function(){
+		loadDeckLocal(event);
+	});		
+}
 
 function initCanvas(){
 	var canvas = '<canvas id=\"connectome\" height=\"' + $('#workspace').height() + '\" width=\"' + $('#workspace').width() + '\"></canvas>';
@@ -22,8 +39,22 @@ function loadDeckJSON(title){
 	});
 }
 
+function loadDeckLocal(evt){
+	var file = evt.target.files[0];
+	var reader = new FileReader();
+	reader.onload = (function(e){
+		deckInUse = JSON.parse(reader.result);
+		$('.card').remove();
+		console.log('Got File');
+		console.log(deckInUse);
+		deal(deckInUse);
+	});	
+	reader.readAsText(file);
+}
+
 
 function deal(parsedDeck){
+	//Create card objects
 	$('.cardPad').each(function(i){
 		var cardInner = "";
 		cardInner += '<div class=\"card\">'
@@ -39,7 +70,13 @@ function deal(parsedDeck){
 		cardInner += '</div>';
 		$(this).append(cardInner);
 	});
+	//Assign Unique IDs to nodes
+	$('.node').each(function(i){
+		$(this).data('node-id',UID());
+	});
+	//Save Deck object in global
 	deckInUse = parsedDeck;
+	//More setup
 	navPlumbing();
 	generateConnectome(parsedDeck);
 }
@@ -58,6 +95,7 @@ function generateConnectome(parsedDeck){
 	var graphCTX = graphView.getContext('2d');
 	//Erase previous connectome
 	graphCTX.clearRect(0, 0, graphView.width, graphView.height);
+	$('#relationshipTable').html('');
 	//Assign abstract identifiers to each node
 	//Get Array of Symbols
 	var symbols = parsedDeck.deck.symbols;
@@ -112,23 +150,47 @@ function generateConnectome(parsedDeck){
 		$('.node').each(function(matchNode){
 			if($(this).closest('.cardPad').attr('id') != $(matingNode).closest('.cardPad').attr('id')){
 				if($(this).data('symbol') == $(matingNode).data('symbol') && $(this).data('split') != $(matingNode).data('split')){
-					console.log("found relationship between " + matingNode.innerHTML + " and " + this.innerHTML);
-					graphCTX.lineWidth = 1;
-					graphCTX.strokeStyle = 'rgba(254, 122, 188, 0.3)';
-					graphCTX.beginPath();
-					graphCTX.moveTo($(matingNode).data('xpos'), $(matingNode).data('ypos'));
-					graphCTX.lineTo($(this).data('xpos'), $(this).data('ypos'));
-					graphCTX.stroke();
+					console.log(); //40-700					
+					var lineLength = lengthOfLine($(matingNode).data('xpos'), $(matingNode).data('ypos'), $(this).data('xpos'), $(this).data('ypos'));
+					// While we're here, let's mark the dots that have connecting lines <42px
+					// This means that they are in a "solved" position
+						if(lineLength < 42){
+							graphCTX.fillStyle = '#bfffe8';
+							graphCTX.beginPath();
+							graphCTX.arc($(this).data("xpos"), $(this).data("ypos"),5,0,2 * Math.PI, false);
+							graphCTX.fill();
+							graphCTX.beginPath();
+							graphCTX.arc($(matingNode).data('xpos'), $(matingNode).data('ypos'),5,0,2 * Math.PI, false);
+							graphCTX.fill();
+						}
+						var lineHue = Math.round(scale(lineLength, 40, 700, 150, 315));
+						// Assign procedural name to relationship and add to list
+						var connectID = "{" + $(matingNode).data('node-id') + "-" + $(this).data("node-id") + "}";
+						if(lineLength < 42){
+							connectID += " ★";
+						}
+						var thisEntry = $('#relationshipTable').append('<p data-r-length=\"' + Math.round(lineLength) + '\" style=\"background-color: ' + 'hsla(' + lineHue + ', 100%, 85%, 0.8)\">' + connectID + "</p>");
+						// Draw the relationship lines
+					if($('#drawLines').prop("checked")){
+						graphCTX.lineWidth = 1;
+						graphCTX.strokeStyle = 'hsla('+lineHue+', 100%, 85%, 0.8)';
+						graphCTX.beginPath();
+						graphCTX.moveTo($(matingNode).data('xpos'), $(matingNode).data('ypos'));
+						graphCTX.lineTo($(this).data('xpos'), $(this).data('ypos'));
+						graphCTX.stroke();
+					}
 				}
 			}
 		});
 	});
+	if($('#cullDupes').prop("checked")){
+		cullDuplicateRelationships();
+	};
+	runStats();
 }
 
 function swapUp(target){
-	console.log(target);
 	var cardPos = $(target).closest('.cardPad').attr('id');
-	console.log(cardPos);
 	if(cardPos!=1 && cardPos!=2 && cardPos!=3){
 		var swapSelect = ".cardPad#" + (parseInt(cardPos) - 3);
 		swapCards($(target).closest('.card'), $(swapSelect).find('.card'));
@@ -137,9 +199,7 @@ function swapUp(target){
 }
 
 function swapRight(target){
-	console.log(target);
 	var cardPos = $(target).closest('.cardPad').attr('id');
-	console.log(cardPos);
 	if(cardPos!=3 && cardPos!=6 && cardPos!=9){
 		var swapSelect = ".cardPad#" + (parseInt(cardPos) + 1);
 		swapCards($(target).closest('.card'), $(swapSelect).find('.card'));
@@ -148,9 +208,7 @@ function swapRight(target){
 }
 
 function swapDown(target){
-	console.log(target);
 	var cardPos = $(target).closest('.cardPad').attr('id');
-	console.log(cardPos);
 	if(cardPos!=7 && cardPos!=8 && cardPos!=9){
 		var swapSelect = ".cardPad#" + (parseInt(cardPos) + 3);
 		swapCards($(target).closest('.card'), $(swapSelect).find('.card'));
@@ -159,9 +217,7 @@ function swapDown(target){
 }
 
 function swapLeft(target){
-	console.log(target);
 	var cardPos = $(target).closest('.cardPad').attr('id');
-	console.log(cardPos);
 	if(cardPos!=1 && cardPos!=4 && cardPos!=7){
 		var swapSelect = ".cardPad#" + (parseInt(cardPos) - 1);
 		swapCards($(target).closest('.card'), $(swapSelect).find('.card'));
@@ -183,4 +239,50 @@ function swapCards(cardA, cardB){
 	var originB = cardB.closest('.cardPad');
 	cardA.appendTo(originB);
 	cardB.appendTo(originA);
+}
+
+function lengthOfLine(x1, y1, x2, y2){
+	var a = x1 - x2;
+	var b = y1 - y2;
+	return Math.sqrt( a*a + b*b );	
+}
+
+function scale(input, yMin, yMax, xMin, xMax){
+percent = (input - yMin) / (yMax - yMin);
+return (percent * (xMax - xMin) + xMin);
+}
+
+function UID(){
+  return Math.random().toString(36).substr(2, 16);
+};
+
+function cullDuplicateRelationships(){
+	$('#relationshipTable').find('p').each(function(){
+		var testObj = this;
+		var descriptor = $(this).text();
+		var inverse = "{" + descriptor.split("-")[1].split("}")[0] + "-" + descriptor.split("-")[0].split("{")[1] + "}";
+		var inverseAlt = inverse + " ★";
+		$('#relationshipTable').find('p').each(function(){
+			if($(this).text() == inverse || $(this).text() == inverseAlt){
+				$(testObj).remove();
+			}
+		});
+	});	
+}
+
+function runStats(){
+	var connections = $('#relationshipTable').find('p').length;
+	var combinedLength = 0;
+	$('#relationshipTable').find('p').each(function(){
+		combinedLength += parseInt($(this).attr('data-r-length'));
+	});
+	var avgLength = Math.round(combinedLength / connections);
+	var outString = "";
+	outString += "# of Connections:\n";
+	outString += connections + "\n\n";
+	outString += "Combined Length of Connections:\n";
+	outString += combinedLength + "\n\n";
+	outString += "Avg Length of Connections:\n";
+	outString += avgLength + "\n\n";
+	$('#stats').val(outString);
 }

@@ -1,0 +1,73 @@
+{
+  "deck": {
+	"publisher":"Price Stern Sloan",
+	"title":"The Crazy Kitty Game",
+	"code":"null",
+    "symbols": [
+      "Pink Cat",
+      "Orange Cat",
+      "Blue Cat",
+      "Green Cat"
+    ],
+    "halves": [
+      "Head",
+      "Feet"
+    ],
+    "cards": [
+      {
+        "top": "Orange Cat Head",
+        "right": "Blue Cat Head",
+        "bottom": "Pink Cat Feet",
+        "left": "Green Cat Feet"
+      },
+      {
+        "top": "Orange Cat Head",
+        "right": "Green Cat Head",
+        "bottom": "Pink Cat Feet",
+        "left": "Blue Cat Feet"
+      },
+      {
+        "top": "Blue Cat Head",
+        "right": "Orange Cat Feet",
+        "bottom": "Pink Cat Feet",
+        "left": "Green Cat Head"
+      },
+      {
+        "top": "Pink Cat Head",
+        "right": "Green Cat Head",
+        "bottom": "Orange Cat Feet",
+        "left": "Green Cat Feet"
+      },
+      {
+        "top": "Orange Cat Feet",
+        "right": "Pink Cat Head",
+        "bottom": "Blue Cat Head",
+        "left": "Green Cat Feet"
+      },
+      {
+        "top": "Pink Cat Feet",
+        "right": "Blue Cat Feet",
+        "bottom": "Orange Cat Head",
+        "left": "Blue Cat Head"
+      },
+      {
+        "top": "Blue Cat Feet",
+        "right": "Pink Cat Head",
+        "bottom": "Green Cat Head",
+        "left": "Orange Cat Feet"
+      },
+      {
+        "top": "Pink Cat Feet",
+        "right": "Orange Cat Feet",
+        "bottom": "Blue Cat Head",
+        "left": "Green Cat Head"
+      },
+      {
+        "top": "Green Cat Feet",
+        "right": "Orange Cat Head",
+        "bottom": "Blue Cat Head",
+        "left": "Pink Cat Feet"
+      }
+    ]
+  }
+}

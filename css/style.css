@@ -85,6 +85,7 @@ html,body {
 	width: 25%;
 	overflow-y: scroll;
 	background-color: #CCFEF4;
+	overflow-x: hidden;
 	
 }
 
@@ -152,8 +153,23 @@ html,body {
 	margin: 10px;	
 }
 
-#deckTools{
+.deckTools{
 	margin: 10px;
+}
+
+#relationshipTable{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 8pt;
+	height: 200px;
+	width: 90%;
+	overflow-y: scroll;
+}
+
+#stats{
+	height: 200px;
+	width: 90%;
+	font-size: 8pt;
 }
 
 .card{

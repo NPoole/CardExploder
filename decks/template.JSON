@@ -1,0 +1,73 @@
+{
+  "deck": {
+	"publisher":" ",
+	"title":" ",
+	"code":" ",
+    "symbols": [
+      " ",
+      " ",
+      " ",
+      " "
+    ],
+    "halves": [
+      " ",
+      " "
+    ],
+    "cards": [
+      {
+        "top": " ",
+        "right": " ",
+        "bottom": " ",
+        "left": " "
+      },
+      {
+        "top": " ",
+        "right": " ",
+        "bottom": " ",
+        "left": " "
+      },
+      {
+        "top": " ",
+        "right": " ",
+        "bottom": " ",
+        "left": " "
+      },
+      {
+        "top": " ",
+        "right": " ",
+        "bottom": " ",
+        "left": " "
+      },
+      {
+        "top": " ",
+        "right": " ",
+        "bottom": " ",
+        "left": " "
+      },
+      {
+        "top": " ",
+        "right": " ",
+        "bottom": " ",
+        "left": " "
+      },
+      {
+        "top": " ",
+        "right": " ",
+        "bottom": " ",
+        "left": " "
+      },
+      {
+        "top": " ",
+        "right": " ",
+        "bottom": " ",
+        "left": " "
+      },
+      {
+        "top": " ",
+        "right": " ",
+        "bottom": " ",
+        "left": " "
+      }
+    ]
+  }
+}

@@ -18,29 +18,38 @@
 
 	<div id="side-menu">
 	
-	<div id="titleCard">
-	<h2 id="menuHeader">Card Exploder</h2>
-	<p id="menuCopy">---------------------</p>
-	<p id="menuCopy">A 9-Card Puzzle Utility</p>
-	<p id="menuCopy">By NPoole</p>
-	</div>
-	
-	<div id="deckTools">
-	
-	<label for="deckSelect">Choose a Deck</label>
-	<select id="deckSelect">
-	<option value="SensationalSeaLife">Sensational Sea Life Nature Puzzle</option>
-	</select>
-	<p>---or---</p>
-	<label for="localDeck">Load your own</label>
-        <input type="file"
-               id="localDeck" name="localDeck"
-               accept="application/json" />
-	
-	
-	</div>
-	
-	
+		<div id="titleCard">
+			<h2 id="menuHeader">Card Exploder</h2>
+			<p id="menuCopy">---------------------</p>
+			<p id="menuCopy">A 9-Card Puzzle Utility</p>
+			<p id="menuCopy">By NPoole</p>
+		</div>
+		
+		<div class="deckTools">
+		
+			<label for="deckSelect">Choose a Deck</label>
+			<select id="deckSelect">
+			<option value="SensationalSeaLife" selected>Sensational Sea Life Nature Puzzle</option>
+			<option value="CrazyKittyGame">The Crazy Kitty Game</option>
+			<option value="ScrambleSquaresFrogs">Scramble Squares: Frogs</option>
+			</select>
+			<p>---or---</p>
+			<label for="localDeck">Load your own</label>
+				<input type="file"
+					   id="localDeck" name="localDeck"
+					   accept="application/json" />
+		</div>
+		
+		<div class="deckTools">
+			<input type="checkbox" name="options" id="drawLines" checked> Draw Ratsnest <br/>
+			<div id="relationshipTable">
+			</div>
+			<input type="checkbox" name="options" id="cullDupes" checked> Cull Duplicates <br/>
+		</div>
+		
+		<div class="deckTools">
+			<textarea id="stats"></textarea> 
+		</div>
 	</div>
 
 	<div id="workspace">
