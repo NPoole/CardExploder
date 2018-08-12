@@ -273,9 +273,16 @@ function cullDuplicateRelationships(){
 function runStats(){
 	var connections = $('#relationshipTable').find('p').length;
 	var combinedLength = 0;
+	var matches = 0;
 	$('#relationshipTable').find('p').each(function(){
 		combinedLength += parseInt($(this).attr('data-r-length'));
+		if(parseInt($(this).attr('data-r-length')) < 42){
+			matches++;
+		}
 	});
+	if($('#cullDupes').prop("checked")==false){
+		matches = matches / 2;
+	}
 	var avgLength = Math.round(combinedLength / connections);
 	var outString = "";
 	outString += "# of Connections:\n";
@@ -284,5 +291,7 @@ function runStats(){
 	outString += combinedLength + "\n\n";
 	outString += "Avg Length of Connections:\n";
 	outString += avgLength + "\n\n";
+	outString += "Edge Matches:\n";
+	outString += matches + "\n\n";
 	$('#stats').val(outString);
 }
